@@ -1,0 +1,128 @@
+*{
+    margin: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    /* incluye el padding y el borde en el ancho total del elemento en width y height */
+
+}
+.padre
+{
+    display: flex;
+    flex-flow: column nowrap;
+}
+/* le di tab a los hijos principales de .padre */
+    .header
+    {
+        background: #000;
+        display: flex;
+        flex-flow: column nowrap;
+    }
+        .menu
+        /* menú tiene 3 hijitos: logo, nav y social */
+        {
+            background: #2d4059;
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: flex-start;
+            height: 100px;
+            /* porque se veía muy chiquito, osea muy delgadito */
+            align-items: center;
+            /* porque se ponían originalmente en la parte de arriba del menú y los quiero en el centro verticalmente */
+        }
+            .logo
+            {
+               background: #ea5455;
+               order:0;
+               flex: 1 1 auto;
+               height: 50px;
+               
+            }
+            .nav
+            {
+                background: #ea5455; 
+                
+                order:0;
+                flex: 4 1 auto;
+                height: 50px;
+            }
+            .social
+            {
+                
+                background: #ea5455;
+                order:0;
+                flex: 1 1 auto;
+                height: 50px;
+                
+            }
+        .texto_principal
+        /* texto_principal tiene sólo 1 hijito: el h1 */
+        {
+            background: #f07b3f;
+        }
+            h1
+            /* a h1 no tengo que ponerle punto porque es palabra reservada de css */
+            {
+                background:#ffd460;
+            }
+    .section
+    /* section tiene 2 hijitos: articulos y aside (Esos a su vez tienen hijitos) */
+    {
+        background: #000;
+        display: flex;
+
+    }
+        .articulos
+        {
+            background: #4e4e6a;
+            flex: 2 1 auto;
+            /* aquí le estoy diciendo que flex tiene el doble de espacio de aside porque están al mismo nivel */
+            display: flex;
+            flex-flow: row wrap;
+            /* le puse wrap para que si no caben al 100% se vayan para abajo */
+        }
+            .article
+            {
+               background: #1f6cb0;
+               flex: 1 1 40%;
+               /* osea cada artículo va a ocupar el 40% del contenedor */
+            }
+            .navegacion
+            {
+               background:  #70a3c4;
+               flex: 1 1 100%;
+               /* le puse el 100% para que el menú de navegació entre los artículos ocupe el 100% de la sección hija artículos */
+            }
+        .aside
+        {
+            background: #f73f52;
+            flex: 1 1 auto;
+            /* aquí le estoy diciendo que tiene la mitad de artículos porque están al mismo nivel y quiero que los arttículos sean más grandes */
+
+        }
+            .publicidad
+            {
+                background: #ffea85;
+            }
+    .footer
+    {
+        background: #000;
+        display:flex;
+        justify-content: center;
+
+    }
+        .pie
+        {
+            background: #e6af2e;
+            width: 300px;
+        }
+/* pongo los media query
+ */
+ @media all and (max-width:800px)
+ /* le estoy diciendo que todo lo de entre 0 y 800 px en la pantalla  */
+ {
+    .section
+    {
+        flex-direction: column;
+    }
+
+ }
